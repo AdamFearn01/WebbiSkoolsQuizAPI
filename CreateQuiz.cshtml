@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Create New Quiz";
+}
+<h2>@ViewData["Title"]</h2>
+<p>Please give the new Quiz a title</p>
+
+<div name="createNewQuiz">
+    @using (Html.BeginForm("CreateNewQuiz", "Home"))
+    {
+        <p>Quiz Name: @Html.TextBox("QuizName", "", new { style = "width: 200px;" })</p>
+
+        <button>Submit</button>
+    }
+</div>

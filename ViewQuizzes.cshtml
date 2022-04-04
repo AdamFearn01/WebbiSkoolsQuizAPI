@@ -1,0 +1,48 @@
+﻿@using WebbiSkools_Ltd.Models
+
+@model IEnumerable<IGrouping<string, QuizView>>
+
+@{
+    ViewData["Title"] = "Quizzes";
+}
+
+<h1>@ViewData["Title"]</h1> <p>@Html.ActionLink("New Quiz", "CreateQuiz")</p>
+
+<div class="container-md">
+    @foreach (var quizView in Model)
+    {
+        <section class="text-center">
+            <h3>Quiz Name: @quizView.Key</h3>
+                @foreach (var item in quizView)
+                {
+                    <div class="row" style="text-align: center; color: white; background-color: #8f00ce !important;">
+                        <div class="col-sm-4 border">Question:</div>
+                        <div class="col-sm border">@item.QuestionText</div>
+                    </div>
+                    <div class="row" style="text-align: center; color: white;">
+                        <div class="col-sm-4 border">A:</div>
+                        <div class="col-sm border">@item.AnswerOne</div>
+                    </div>
+                    <div class="row" style="text-align: center; color: white;">
+                        <div class="col-sm-4 border">B:</div>
+                        <div class="col-sm border">@item.AnswerTwo</div>
+                    </div>
+                    <div class="row" style="text-align: center; color: white;">
+                        <div class="col-sm-4 border">C:</div>
+                        <div class="col-sm border">@item.AnswerThree</div>
+                    </div>
+                    <div class="row" style="text-align: center; color: white; @(@item.AnswerFour == null ? "display:none" : "dispay:block")">
+                        <div class="col-sm-4 border">D:</div>
+                        <div class="col-sm border">@item.AnswerFour</div>
+                        <div class="col-sm-1 border">@Html.ActionLink("Remove", "RemoveAnswer", "Home", new { UniqueSetID = item.UniqueSetID, AnswerFour = item.AnswerFour })</div>
+                    </div>
+                    <div class="row" style="text-align: center; color: white; @(item.AnswerFive == null ? "display:none" : "dispay:block")">
+                        <div class="col-sm-4 border">E:</div>
+                        <div class="col-sm border">@item.AnswerFive</div>
+                        <div class="col-sm-1 border">@Html.ActionLink("Remove", "RemoveAnswer", "Home", new { UniqueSetID = item.UniqueSetID, AnswerFive = item.AnswerFive })</div>
+                    </div>
+                    <br />
+                }
+        </section>
+    }
+</div>

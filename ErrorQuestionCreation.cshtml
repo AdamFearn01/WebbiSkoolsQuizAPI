@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Invalid Question format entered";
+    ViewData["Message"] = "Each question set must include 1 question (under 50 characters). And at least 3 answers under 255 characters";
+}
+
+<h1 style="text-align: center;">@ViewData["Title"]</h1>
+<h4 style="text-align: center;">@ViewData["Message"]</h4>
+<h4 style="text-align: center;">Click the "Restart Quiz" button to restart quiz creation</h4>
+
+<button>@Html.ActionLink("Restart Quiz", "CreateQuiz", "Home")</button>
+<button>@Html.ActionLink("Return Home", "Home", "Home")</button>

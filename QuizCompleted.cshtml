@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "New Quiz Created";
+}
+<h1 style="text-align: center;">@ViewData["Title"]</h1>
+
+<p style="text-align: center;">@ViewBag.Username You have created a new quiz!</p>
+<p style="text-align: center;">Click "Proceed" to view this Quiz and any other quizzes previously made</p>
+
+<button>@Html.ActionLink("Proceed", "ViewQuizzes", "Home")</button>

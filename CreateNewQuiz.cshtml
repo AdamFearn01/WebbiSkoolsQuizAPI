@@ -1,0 +1,10 @@
+﻿@using WebbiSkools_Ltd.Models
+
+@model List<WebbiSkools_Ltd.Models.Quiz>
+
+<div>
+    @foreach (var id in Model)
+    {
+        <p>@id.QuizID</p>
+    }
+</div>

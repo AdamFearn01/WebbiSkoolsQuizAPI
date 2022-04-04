@@ -1,0 +1,31 @@
+﻿@using WebbiSkools_Ltd.Models
+
+@{
+    ViewData["Title"] = "Question 1";
+    ViewData["Message"] = "Please enter a Question and set of Answers below, (minimum of 3 answers)";
+}
+
+<p>@ViewBag.QuizName</p>
+<h1 style="text-align: center;">@ViewData["Title"]</h1>
+<h4 style="text-align: center;">@ViewData["Message"]</h4>
+
+<div name="createQuestion">
+    @using (Html.BeginForm("CreateQuestionSet", "Home"))
+    {
+        <p>Question*: @Html.TextBox("QuestionText", "", new { style = "width: 200px;" })</p>
+
+        <p>Answer 1*: @Html.TextBox("AnswerOne", "", new { style = "width: 200px;" })</p>
+
+        <p>Answer 2*: @Html.TextBox("AnswerTwo", "", new { style = "width: 200px;" })</p>
+
+        <p>Answer 3*: @Html.TextBox("AnswerThree", "", new { style = "width: 200px;" })</p>
+
+        <p>Answer 4: @Html.TextBox("AnswerFour", "", new { style = "width: 200px;" })</p>
+
+        <p>Answer 5: @Html.TextBox("AnswerFive", "", new { style = "width: 200px;" })</p>
+
+        <p>@Html.Hidden("QuestionID", 1)</p>
+
+        <button>Submit</button>
+    }
+</div>

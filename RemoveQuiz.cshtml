@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Quiz Removed";
+    ViewData["Message"] = "Click \"Return to Quizzes\" to continue editing queizzes, alternativley click \"Return Home\" to return home";
+}
+
+<h1 style="text-align: center;">@ViewData["Title"]</h1>
+<h4 style="text-align: center;">@ViewData["Message"]</h4>
+<h4 style="text-align: center;">Click the "Restart Quiz" button to restart quiz creation</h4>
+
+<button>@Html.ActionLink("Return to Quizzes", "EditQuizzes", "Home")</button>
+<button>@Html.ActionLink("Return Home", "Home", "Home")</button>
